@@ -11,6 +11,77 @@
       color: #000000;
       margin: 0;
       padding: 0;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Волна типа ДНК */
+    .dna-wave {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .dna-line {
+      position: absolute;
+      width: 2px;
+      height: 200%;
+      background: linear-gradient(to bottom, transparent, #28a745, transparent);
+      animation: dnaMove 8s linear infinite;
+    }
+
+    .dna-line:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .dna-line:nth-child(2) {
+      left: 20%;
+      animation-delay: -1s;
+    }
+
+    .dna-line:nth-child(3) {
+      left: 30%;
+      animation-delay: -2s;
+    }
+
+    .dna-line:nth-child(4) {
+      left: 40%;
+      animation-delay: -3s;
+    }
+
+    .dna-line:nth-child(5) {
+      left: 60%;
+      animation-delay: -4s;
+    }
+
+    .dna-line:nth-child(6) {
+      left: 70%;
+      animation-delay: -5s;
+    }
+
+    .dna-line:nth-child(7) {
+      left: 80%;
+      animation-delay: -6s;
+    }
+
+    .dna-line:nth-child(8) {
+      left: 90%;
+      animation-delay: -7s;
+    }
+
+    @keyframes dnaMove {
+      0% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-50%) rotate(360deg);
+      }
     }
 
     .site-title {
@@ -20,6 +91,17 @@
       font-size: 16px;
       color: #666;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .green-circle {
+      width: 8px;
+      height: 8px;
+      background-color: #28a745;
+      border-radius: 50%;
+      margin-top: 4px;
     }
 
     .container {
@@ -142,7 +224,21 @@
 </head>
 <body>
 
-  <h1 class="site-title">GL</h1>
+  <!-- Волна типа ДНК -->
+  <div class="dna-wave">
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+    <div class="dna-line"></div>
+  </div>
+
+  <h1 class="site-title">GL
+    <div class="green-circle"></div>
+  </h1>
 
   <div class="container">
     <aside class="sidebar">
@@ -176,15 +272,6 @@
               <div class="game-category">Хоррор</div>
             </div>
             <a class="download-btn" href="https://gamejolt.com/games/cnaf/316567" target="_blank">Скачать</a>
-          </div>
-
-          <!-- Симуляторы -->
-          <div class="game-item" data-category="simulation">
-            <div class="game-info">
-              <div class="game-name">Supermarket Simulator</div>
-              <div class="game-category">Симулятор</div>
-            </div>
-            <a class="download-btn" href="https://drive.google.com/file/d/1NF7W9Oenh3B08lYQ9Cpn44FbAjAOWGKd/view?usp=sharing" target="_blank">Скачать</a>
           </div>
 
           <!-- Аркады -->
