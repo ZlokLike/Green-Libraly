@@ -3,105 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameBase</title>
+  <title>GL</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      color: #000;
+      background-color: #ffffff;
+      color: #000000;
       margin: 0;
       padding: 0;
     }
 
-    header {
-      background: #fff;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 2px solid #28a745;
-    }
-
-    header h1 {
-      font-size: 24px;
-      color: #28a745;
+    .site-title {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 16px;
+      color: #666;
       margin: 0;
     }
 
     .container {
       display: flex;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 20px;
-      gap: 20px;
+      padding: 60px 20px 30px;
+      gap: 30px;
     }
 
     .sidebar {
-      flex: 0 0 200px;
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #ddd;
-    }
-
-    .sidebar h2 {
-      color: #28a745;
-      margin-top: 0;
-      font-size: 18px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .sidebar ul {
-      list-style: none;
+      flex: 0 0 180px;
       padding: 0;
     }
 
-    .sidebar li {
-      margin-bottom: 8px;
+    .categories-container {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
     }
 
-    .sidebar a {
-      color: #000;
-      text-decoration: none;
+    .sidebar h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .category-btn {
       display: block;
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
+      width: 100%;
+      padding: 8px 0;
+      margin-bottom: 5px;
+      background: none;
+      border: none;
+      color: #666;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      transition: color 0.2s ease;
     }
 
-    .sidebar a:hover {
+    .category-btn:hover,
+    .category-btn.active {
       color: #28a745;
     }
 
-    .games-list {
+    .games-section {
       flex: 1;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .games-container {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .games-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 1px;
+      background-color: #f8f9fa;
     }
 
     .game-item {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #ffffff;
       padding: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border: none;
     }
 
     .game-item:hover {
-      border-color: #28a745;
+      background: #f8f8f8;
+    }
+
+    .game-info {
+      display: flex;
+      flex-direction: column;
     }
 
     .game-name {
-      font-size: 16px;
-      font-weight: bold;
-      color: #000;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .game-category {
+      font-size: 12px;
+      color: #666;
     }
 
     .download-btn {
-      padding: 8px 16px;
+      padding: 6px 12px;
       background: #28a745;
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 12px;
+      border: none;
+      cursor: pointer;
     }
 
     .download-btn:hover {
@@ -110,70 +134,120 @@
 
     footer {
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 12px;
-      color: #666;
-      background: #fff;
-      border-top: 1px solid #ddd;
-      margin-top: 20px;
+      color: #999;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>GameBase</h1>
-  </header>
+  <h1 class="site-title">GL</h1>
 
   <div class="container">
     <aside class="sidebar">
-      <h2>Категории</h2>
-      <ul>
-        <li><a href="#">Экшен</a></li>
-        <li><a href="#">Хоррор</a></li>
-        <li><a href="#">Симуляторы</a></li>
-        <li><a href="#">Аркады</a></li>
-        <li><a href="#">Приключения</a></li>
-      </ul>
-      
-      <h2>Популярное</h2>
-      <ul>
-        <li><a href="#">Топ недели</a></li>
-        <li><a href="#">Новинки</a></li>
-      </ul>
+      <div class="categories-container">
+        <h2>Категории</h2>
+        <button class="category-btn active" data-category="all">Все</button>
+        <button class="category-btn" data-category="horror">Хоррор</button>
+        <button class="category-btn" data-category="simulation">Симуляторы</button>
+        <button class="category-btn" data-category="arcade">Аркады</button>
+        <button class="category-btn" data-category="sandbox">Песочницы</button>
+      </div>
     </aside>
 
-    <main class="games-list">
-      <div class="game-item">
-        <div class="game-name">People Playground</div>
-        <a class="download-btn" href="https://drive.google.com/file/d/1ok-RKAHnOB6z2iNCCZPl3J_hZCpoJXDM/view?usp=sharing" target="_blank">Скачать</a>
-      </div>
+    <main class="games-section">
+      <h2 class="section-title">Все</h2>
+      
+      <div class="games-container">
+        <div class="games-list" id="games-container">
+          <!-- Хоррор игры -->
+          <div class="game-item" data-category="horror">
+            <div class="game-info">
+              <div class="game-name">FNaF T-JOK</div>
+              <div class="game-category">Хоррор</div>
+            </div>
+            <a class="download-btn" href="https://drive.google.com/file/d/13qYvqh9MkAlFNdFBe8eY4F00mM0oPTla/view?usp=sharing" target="_blank">Скачать</a>
+          </div>
 
-      <div class="game-item">
-        <div class="game-name">FNaF T-JOK</div>
-        <a class="download-btn" href="https://drive.google.com/file/d/13qYvqh9MkAlFNdFBe8eY4F00mM0oPTla/view?usp=sharing" target="_blank">Скачать</a>
-      </div>
+          <div class="game-item" data-category="horror">
+            <div class="game-info">
+              <div class="game-name">Creepy Nights at Freddy's</div>
+              <div class="game-category">Хоррор</div>
+            </div>
+            <a class="download-btn" href="https://gamejolt.com/games/cnaf/316567" target="_blank">Скачать</a>
+          </div>
 
-      <div class="game-item">
-        <div class="game-name">Creepy Nights at Freddy's</div>
-        <a class="download-btn" href="https://gamejolt.com/games/cnaf/316567" target="_blank">Скачать</a>
-      </div>
+          <!-- Симуляторы -->
+          <div class="game-item" data-category="simulation">
+            <div class="game-info">
+              <div class="game-name">Supermarket Simulator</div>
+              <div class="game-category">Симулятор</div>
+            </div>
+            <a class="download-btn" href="https://drive.google.com/file/d/1NF7W9Oenh3B08lYQ9Cpn44FbAjAOWGKd/view?usp=sharing" target="_blank">Скачать</a>
+          </div>
 
-      <div class="game-item">
-        <div class="game-name">Supermarket Simulator</div>
-        <a class="download-btn" href="https://drive.google.com/file/d/1NF7W9Oenh3B08lYQ9Cpn44FbAjAOWGKd/view?usp=sharing" target="_blank">Скачать</a>
-      </div>
+          <!-- Аркады -->
+          <div class="game-item" data-category="arcade">
+            <div class="game-info">
+              <div class="game-name">Geometry Dash</div>
+              <div class="game-category">Аркада</div>
+            </div>
+            <a class="download-btn" href="https://geometriodash.ru/wp-content/uploads/Geometry%20Dash%20v2.2074.exe" target="_blank">Скачать</a>
+          </div>
 
-      <div class="game-item">
-        <div class="game-name">Geometry Dash</div>
-        <a class="download-btn" href="https://geometriodash.ru/wp-content/uploads/Geometry%20Dash%20v2.2074.exe" target="_blank">Скачать</a>
+          <!-- Песочницы -->
+          <div class="game-item" data-category="sandbox">
+            <div class="game-info">
+              <div class="game-name">People Playground</div>
+              <div class="game-category">Песочница</div>
+            </div>
+            <a class="download-btn" href="https://drive.google.com/file/d/1ok-RKAHnOB6z2iNCCZPl3J_hZCpoJXDM/view?usp=sharing" target="_blank">Скачать</a>
+          </div>
+        </div>
       </div>
     </main>
   </div>
 
   <footer>
-    © 2025 GameBase. Все права защищены.
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const gameItems = document.querySelectorAll('.game-item');
+      const sectionTitle = document.querySelector('.section-title');
+
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const category = this.getAttribute('data-category');
+          
+          if (category === 'all') {
+            sectionTitle.textContent = 'Все';
+          } else {
+            const categoryNames = {
+              'horror': 'Хоррор',
+              'simulation': 'Симуляторы',
+              'arcade': 'Аркады',
+              'sandbox': 'Песочницы'
+            };
+            sectionTitle.textContent = categoryNames[category];
+          }
+          
+          gameItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
