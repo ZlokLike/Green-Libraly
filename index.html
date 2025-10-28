@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameBase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 2px solid #28a745;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #28a745;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .sidebar {
+      flex: 0 0 200px;
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+
+    .sidebar h2 {
+      color: #28a745;
+      margin-top: 0;
+      font-size: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar a {
+      color: #000;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .sidebar a:hover {
+      color: #28a745;
+    }
+
+    .games-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .game-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .game-item:hover {
+      border-color: #28a745;
+    }
+
+    .game-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .download-btn {
+      padding: 8px 16px;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      color: #666;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GameBase</h1>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Категории</h2>
+      <ul>
+        <li><a href="#">Экшен</a></li>
+        <li><a href="#">Хоррор</a></li>
+        <li><a href="#">Симуляторы</a></li>
+        <li><a href="#">Аркады</a></li>
+        <li><a href="#">Приключения</a></li>
+      </ul>
+      
+      <h2>Популярное</h2>
+      <ul>
+        <li><a href="#">Топ недели</a></li>
+        <li><a href="#">Новинки</a></li>
+      </ul>
+    </aside>
+
+    <main class="games-list">
+      <div class="game-item">
+        <div class="game-name">People Playground</div>
+        <a class="download-btn" href="https://drive.google.com/file/d/1ok-RKAHnOB6z2iNCCZPl3J_hZCpoJXDM/view?usp=sharing" target="_blank">Скачать</a>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">FNaF T-JOK</div>
+        <a class="download-btn" href="https://drive.google.com/file/d/13qYvqh9MkAlFNdFBe8eY4F00mM0oPTla/view?usp=sharing" target="_blank">Скачать</a>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">Creepy Nights at Freddy's</div>
+        <a class="download-btn" href="https://gamejolt.com/games/cnaf/316567" target="_blank">Скачать</a>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">Supermarket Simulator</div>
+        <a class="download-btn" href="https://drive.google.com/file/d/1NF7W9Oenh3B08lYQ9Cpn44FbAjAOWGKd/view?usp=sharing" target="_blank">Скачать</a>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">Geometry Dash</div>
+        <a class="download-btn" href="https://geometriodash.ru/wp-content/uploads/Geometry%20Dash%20v2.2074.exe" target="_blank">Скачать</a>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 GameBase. Все права защищены.
+  </footer>
+
+</body>
+</html>
